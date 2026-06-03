@@ -816,11 +816,16 @@ def macos_say_tts(text, path):
         raise RuntimeError("macOS say command is not available")
     aiff = path.with_suffix(".aiff")
     voice = os.getenv("MACOS_SAY_VOICE", "").strip()
+    rate = os.getenv("MACOS_SAY_RATE", "170").strip()
     cmd = ["say"]
     if voice:
         cmd.extend(["-v", voice])
+    if rate:
+        cmd.extend(["-r", rate])
     cmd.extend(["-o", str(aiff), text])
     subprocess.run(cmd, check=True)
+    if not aiff.exists() or aiff.stat().st_size < 10000:
+        raise RuntimeError(f"macOS say produced an invalid audio file with voice={voice or 'default'}")
     subprocess.run(["ffmpeg", "-y", "-i", str(aiff), "-codec:a", "libmp3lame", "-b:a", "128k", str(path)], check=True)
     aiff.unlink(missing_ok=True)
 
@@ -831,7 +836,11 @@ def synthesize_tts(text, path):
     if provider in {"macos", "say"}:
         try:
             macos_say_tts(text, path)
-            print("TTS complete with macOS say")
+            print(
+                "TTS complete with macOS say "
+                f"voice={os.getenv('MACOS_SAY_VOICE', 'default')} "
+                f"rate={os.getenv('MACOS_SAY_RATE', '170')}"
+            )
             return
         except Exception as exc:
             errors.append(f"macOS say: {exc}")
@@ -853,7 +862,11 @@ def synthesize_tts(text, path):
     if os.getenv("TTS_ALLOW_FALLBACK", "false").lower() == "true":
         try:
             macos_say_tts(text, path)
-            print("TTS complete with macOS say fallback")
+            print(
+                "TTS complete with macOS say fallback "
+                f"voice={os.getenv('MACOS_SAY_VOICE', 'default')} "
+                f"rate={os.getenv('MACOS_SAY_RATE', '170')}"
+            )
             return
         except Exception as exc:
             errors.append(f"macOS say: {exc}")

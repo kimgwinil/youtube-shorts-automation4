@@ -51,6 +51,7 @@ After installation, macOS runs `local_run_health_upload.sh` immediately at user 
 ```bash
 TTS_PROVIDER=macos
 MACOS_SAY_VOICE=Yuna
+MACOS_SAY_RATE=170
 ```
 
 The local startup job writes logs to:
