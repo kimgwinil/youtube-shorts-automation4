@@ -38,6 +38,31 @@ TTS_PROVIDER=macos MACOS_SAY_VOICE="Yuna" python longform_automation/daily_longf
 
 Use `say -v ?` on the Mac to list available voice names.
 
+## Run Immediately When The Mac Logs In
+
+Install the local LaunchAgent:
+
+```bash
+./local_install_startup_agent.sh
+```
+
+After installation, macOS runs `local_run_health_upload.sh` immediately at user login. The script uses the local Mac voice by default:
+
+```bash
+TTS_PROVIDER=macos
+MACOS_SAY_VOICE=Yuna
+```
+
+The local startup job writes logs to:
+
+```text
+logs/startup-health-upload.log
+logs/launchd-health-upload.out.log
+logs/launchd-health-upload.err.log
+```
+
+This local startup job uploads a public YouTube video unless `YOUTUBE_PRIVACY` is set differently in `.env`.
+
 ## Required Secrets
 
 Configure repository secrets with:

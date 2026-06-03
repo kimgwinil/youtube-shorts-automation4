@@ -4,5 +4,7 @@ token.json
 output/
 full_video_*/
 voice_samples/
+logs/
+.local-health-upload.lock/
 __pycache__/
 *.pyc
