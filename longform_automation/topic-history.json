@@ -8,5 +8,15 @@
     "voice_id": "yFhtTlnagRJxbEs8yUYt",
     "tts_provider": "elevenlabs",
     "macos_say_voice": "Yuna"
+  },
+  {
+    "topic": "건강상식: 혈압이 높아지는 원리",
+    "title": "혈압이 높아지는 원리",
+    "created_at": "2026-06-04T08:45:57",
+    "automated": true,
+    "video_id": "3eVGwzAwe9s",
+    "voice_id": "yFhtTlnagRJxbEs8yUYt",
+    "tts_provider": "macos",
+    "macos_say_voice": "Yuna"
   }
 ]
