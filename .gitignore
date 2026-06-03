@@ -1,0 +1,8 @@
+.env
+.DS_Store
+token.json
+output/
+full_video_*/
+voice_samples/
+__pycache__/
+*.pyc
