@@ -58,9 +58,9 @@ def _parse_and_validate_topic(raw, used_topics):
 
 def _generate_topic_openai(used_topics):
     client = base.OpenAI(api_key=os.environ["OPENAI_API_KEY"])
-    response = client.chat.completions.create(
-        model=os.getenv("OPENAI_TEXT_MODEL", "gpt-4o-mini"),
-        messages=[
+    response = client.responses.create(
+        model=os.getenv("OPENAI_TEXT_MODEL", "gpt-5.6-luna"),
+        input=[
             {
                 "role": "system",
                 "content": "You return only valid JSON. Do not include markdown fences or commentary.",
@@ -72,9 +72,10 @@ def _generate_topic_openai(used_topics):
                 ),
             },
         ],
-        temperature=0.85,
+        reasoning={"effort": "none"},
+        store=False,
     )
-    return _parse_and_validate_topic(response.choices[0].message.content, used_topics)
+    return _parse_and_validate_topic(response.output_text, used_topics)
 
 
 def _generate_topic_gemini(used_topics):
