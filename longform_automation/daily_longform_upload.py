@@ -181,18 +181,19 @@ def generate_topic(history):
         ),
     }
     client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
-    response = client.chat.completions.create(
-        model=os.getenv("OPENAI_TEXT_MODEL", "gpt-4o-mini"),
-        messages=[
+    response = client.responses.create(
+        model=os.getenv("OPENAI_TEXT_MODEL", "gpt-5.6-luna"),
+        input=[
             {
                 "role": "system",
                 "content": "You return only valid JSON. Do not include markdown fences or commentary.",
             },
             prompt,
         ],
-        temperature=0.85,
+        reasoning={"effort": "none"},
+        store=False,
     )
-    raw = response.choices[0].message.content.strip()
+    raw = response.output_text.strip()
     topic = json.loads(raw)
     required = {"id", "topic", "title", "description", "tags", "subject", "problem", "solution", "example"}
     missing = sorted(required - set(topic))
