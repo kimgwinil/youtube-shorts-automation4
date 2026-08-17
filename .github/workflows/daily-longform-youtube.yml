@@ -1,6 +1,9 @@
 name: Daily Health YouTube Upload
 
 on:
+  schedule:
+    # 05:17 Asia/Seoul. Keep this channel separated from the other daily jobs.
+    - cron: "17 20 * * *"
   workflow_dispatch:
     inputs:
       openai_health_check:
@@ -121,4 +124,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add longform_automation/topic-history.json
           git diff --cached --quiet || git commit -m "Record daily health YouTube topic"
+          git pull --rebase origin "$GITHUB_REF_NAME"
           git push
