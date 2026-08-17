@@ -831,6 +831,20 @@ def macos_say_tts(text, path):
     aiff.unlink(missing_ok=True)
 
 
+def openai_tts(text, path):
+    """Generate narration when the configured ElevenLabs voices are unavailable."""
+    client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
+    response = client.audio.speech.create(
+        model=os.getenv("OPENAI_TTS_MODEL", "gpt-4o-mini-tts"),
+        voice=os.getenv("OPENAI_TTS_VOICE", "alloy"),
+        input=text,
+        response_format="mp3",
+    )
+    response.write_to_file(path)
+    if not path.exists() or path.stat().st_size < 1000:
+        raise RuntimeError("OpenAI TTS produced an invalid audio file")
+
+
 def synthesize_tts(text, path):
     provider = os.getenv("TTS_PROVIDER", "elevenlabs").lower()
     errors = []
@@ -861,6 +875,16 @@ def synthesize_tts(text, path):
         raise RuntimeError(f"Unsupported TTS_PROVIDER: {provider}")
 
     if os.getenv("TTS_ALLOW_FALLBACK", "false").lower() == "true":
+        try:
+            openai_tts(text, path)
+            print(
+                "TTS complete with OpenAI fallback "
+                f"model={os.getenv('OPENAI_TTS_MODEL', 'gpt-4o-mini-tts')} "
+                f"voice={os.getenv('OPENAI_TTS_VOICE', 'alloy')}"
+            )
+            return
+        except Exception as exc:
+            errors.append(f"OpenAI TTS: {exc}")
         try:
             macos_say_tts(text, path)
             print(

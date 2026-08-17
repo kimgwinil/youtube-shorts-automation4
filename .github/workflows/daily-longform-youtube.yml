@@ -46,7 +46,7 @@ jobs:
       ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
       ELEVENLABS_VOICE_ID: ${{ secrets.ELEVENLABS_VOICE_ID }}
       ELEVENLABS_FALLBACK_VOICE_IDS: airYK6ydeWdrJg6gyZA3
-      ELEVENLABS_ALLOW_FALLBACK: "false"
+      ELEVENLABS_ALLOW_FALLBACK: "true"
       ELEVENLABS_MODEL: eleven_multilingual_v2
       ELEVENLABS_STABILITY: "0.82"
       ELEVENLABS_SIMILARITY: "0.88"
@@ -56,17 +56,18 @@ jobs:
       ELEVENLABS_TEXT_NORMALIZATION: "on"
       ELEVENLABS_SEED: "20260604"
       TTS_PROVIDER: elevenlabs
-      TTS_ALLOW_FALLBACK: "false"
+      TTS_ALLOW_FALLBACK: "true"
+      OPENAI_TTS_MODEL: gpt-4o-mini-tts
+      OPENAI_TTS_VOICE: alloy
       HEYGEN_ENABLED: "false"
       ENABLE_BGM: "false"
       ENABLE_SLIDE_CAPTIONS: "false"
       ENABLE_SLIDE_MOTION: "false"
       BURN_IN_SUBTITLES: "true"
       UPLOAD_YOUTUBE_CAPTIONS: "false"
-      IMAGE_PROVIDER: gemini
+      IMAGE_PROVIDER: openai
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-      GOOGLE_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       OPENAI_IMAGE_MODEL: gpt-image-1
       OPENAI_IMAGE_SIZE: 1536x1024
       OPENAI_IMAGE_QUALITY: medium
