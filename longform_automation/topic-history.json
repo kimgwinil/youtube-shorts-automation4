@@ -28,5 +28,15 @@
     "voice_id": "yFhtTlnagRJxbEs8yUYt",
     "tts_provider": "elevenlabs",
     "macos_say_voice": null
+  },
+  {
+    "topic": "건강상식: 위산 역류가 생기는 이유",
+    "title": "위산 역류가 생기는 이유",
+    "created_at": "2026-08-17T20:54:13",
+    "automated": true,
+    "video_id": "bBBjpAwJOi0",
+    "voice_id": "yFhtTlnagRJxbEs8yUYt",
+    "tts_provider": "elevenlabs",
+    "macos_say_voice": null
   }
 ]
