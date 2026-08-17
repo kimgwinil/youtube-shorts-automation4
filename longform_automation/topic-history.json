@@ -18,5 +18,15 @@
     "voice_id": "yFhtTlnagRJxbEs8yUYt",
     "tts_provider": "macos",
     "macos_say_voice": "Yuna"
+  },
+  {
+    "topic": "건강상식: 독감 바이러스가 퍼지는 과정",
+    "title": "독감 바이러스가 퍼지는 과정",
+    "created_at": "2026-08-17T07:56:01",
+    "automated": true,
+    "video_id": "ibdFeBCg4u8",
+    "voice_id": "yFhtTlnagRJxbEs8yUYt",
+    "tts_provider": "elevenlabs",
+    "macos_say_voice": null
   }
 ]
