@@ -967,35 +967,48 @@ def concat_audio_files(audio_files, concat_path, output_path):
     )
 
 
-def duration(path):
+def _ffmpeg_probe_text(path):
+    # ffprobe isn't bundled by imageio-ffmpeg, so probe via ffmpeg's own stderr
+    # banner instead of requiring a separately installed ffprobe binary.
     result = subprocess.run(
-        ["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "default=nw=1:nk=1", str(path)],
-        check=True,
+        [FFMPEG_BIN, "-hide_banner", "-i", str(path)],
         capture_output=True,
         text=True,
     )
-    return float(result.stdout.strip())
+    return result.stderr
+
+
+def duration(path):
+    text = _ffmpeg_probe_text(path)
+    match = re.search(r"Duration:\s*(\d+):(\d+):(\d+\.\d+)", text)
+    if not match:
+        raise RuntimeError(f"Could not determine duration for {path}: {text[-500:]}")
+    hours, minutes, seconds = match.groups()
+    return int(hours) * 3600 + int(minutes) * 60 + float(seconds)
 
 
 def video_probe(path):
-    result = subprocess.run(
-        [
-            "ffprobe",
-            "-v",
-            "error",
-            "-show_entries",
-            "format=duration,bit_rate",
-            "-show_entries",
-            "stream=codec_type,width,height,bit_rate",
-            "-of",
-            "json",
-            str(path),
-        ],
-        check=True,
-        capture_output=True,
-        text=True,
-    )
-    return json.loads(result.stdout)
+    text = _ffmpeg_probe_text(path)
+    duration_value = None
+    dur_match = re.search(r"Duration:\s*(\d+):(\d+):(\d+\.\d+)", text)
+    if dur_match:
+        hours, minutes, seconds = dur_match.groups()
+        duration_value = int(hours) * 3600 + int(minutes) * 60 + float(seconds)
+    streams = []
+    for line in text.splitlines():
+        line = line.strip()
+        if line.startswith("Stream") and ": Video:" in line:
+            size_match = re.search(r"\b(\d{2,5})x(\d{2,5})\b", line)
+            streams.append(
+                {
+                    "codec_type": "video",
+                    "width": int(size_match.group(1)) if size_match else None,
+                    "height": int(size_match.group(2)) if size_match else None,
+                }
+            )
+        elif line.startswith("Stream") and ": Audio:" in line:
+            streams.append({"codec_type": "audio"})
+    return {"format": {"duration": duration_value}, "streams": streams}
 
 
 def validate_video_quality(path, expected_duration=None, min_width=1280, min_height=720):
