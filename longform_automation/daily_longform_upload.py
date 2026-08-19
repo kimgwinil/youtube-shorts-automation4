@@ -127,8 +127,26 @@ LAYOUT_TITLES_EN = [
 ]
 
 
+def _resolve_ffmpeg():
+    explicit = os.environ.get("FFMPEG_BIN", "").strip()
+    if explicit:
+        return explicit
+    try:
+        import imageio_ffmpeg
+        return imageio_ffmpeg.get_ffmpeg_exe()
+    except Exception:
+        return "ffmpeg"
+
+
+FFMPEG_BIN = _resolve_ffmpeg()
+
+
 def _find_cjk_font():
-    candidates = [
+    candidates = []
+    font_file = os.environ.get("FONT_FILE", "").strip()
+    if font_file:
+        candidates.append(font_file)
+    candidates += [
         "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
         "/usr/share/fonts/truetype/noto/NotoSansCJK-Regular.ttc",
         "/System/Library/Fonts/AppleSDGothicNeo.ttc",
@@ -827,7 +845,7 @@ def macos_say_tts(text, path):
     subprocess.run(cmd, check=True)
     if not aiff.exists() or aiff.stat().st_size < 10000:
         raise RuntimeError(f"macOS say produced an invalid audio file with voice={voice or 'default'}")
-    subprocess.run(["ffmpeg", "-y", "-i", str(aiff), "-codec:a", "libmp3lame", "-b:a", "128k", str(path)], check=True)
+    subprocess.run([FFMPEG_BIN, "-y", "-i", str(aiff), "-codec:a", "libmp3lame", "-b:a", "128k", str(path)], check=True)
     aiff.unlink(missing_ok=True)
 
 
@@ -907,7 +925,7 @@ def normalize_narration_text(text):
 def transcode_narration_audio(source, target):
     subprocess.run(
         [
-            "ffmpeg",
+            FFMPEG_BIN,
             "-y",
             "-i",
             str(source),
@@ -944,7 +962,7 @@ def concat_audio_files(audio_files, concat_path, output_path):
         encoding="utf-8",
     )
     subprocess.run(
-        ["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(concat_path), "-c", "copy", str(output_path)],
+        [FFMPEG_BIN, "-y", "-f", "concat", "-safe", "0", "-i", str(concat_path), "-c", "copy", str(output_path)],
         check=True,
     )
 
@@ -1142,7 +1160,7 @@ def render_slide_motion_clip(frame, duration_seconds, target, index):
     )
     subprocess.run(
         [
-            "ffmpeg",
+            FFMPEG_BIN,
             "-y",
             "-loop",
             "1",
@@ -1182,27 +1200,27 @@ def render_slideshow_video(scene_durations, wav_audio, frame_dir):
             render_slide_motion_clip(frame_dir / f"scene-{idx + 1:02}.jpg", dur, clip, idx)
             clips.append(clip)
         concat.write_text("\n".join(f"file '{clip.resolve()}'" for clip in clips), encoding="utf-8")
-        subprocess.run(["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(concat), "-c", "copy", str(silent)], check=True)
+        subprocess.run([FFMPEG_BIN, "-y", "-f", "concat", "-safe", "0", "-i", str(concat), "-c", "copy", str(silent)], check=True)
     else:
         lines = []
         for idx, dur in enumerate(scene_durations):
             lines += [f"file '{frame_dir / f'scene-{idx + 1:02}.jpg'}'", f"duration {dur:.3f}"]
         lines.append(f"file '{frame_dir / f'scene-{len(scene_durations):02}.jpg'}'")
         concat.write_text("\n".join(lines), encoding="utf-8")
-        subprocess.run(["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(concat), "-vf", f"scale={WIDTH}:{HEIGHT},format=yuv420p", "-r", str(FPS), "-c:v", "libx264", "-crf", "19", str(silent)], check=True)
+        subprocess.run([FFMPEG_BIN, "-y", "-f", "concat", "-safe", "0", "-i", str(concat), "-vf", f"scale={WIDTH}:{HEIGHT},format=yuv420p", "-r", str(FPS), "-c:v", "libx264", "-crf", "19", str(silent)], check=True)
     if BGM_ENABLED:
-        subprocess.run(["ffmpeg", "-y", "-f", "lavfi", "-i", f"sine=frequency=82:sample_rate=48000:duration={total + 1}", "-filter_complex", "volume=0.010", str(bgm)], check=True)
-        subprocess.run(["ffmpeg", "-y", "-i", str(wav_audio), "-i", str(bgm), "-filter_complex", "[0:a]volume=1.0[a0];[1:a]volume=0.03[a1];[a0][a1]amix=inputs=2:duration=first", "-c:a", "aac", "-b:a", "192k", str(mixed)], check=True)
+        subprocess.run([FFMPEG_BIN, "-y", "-f", "lavfi", "-i", f"sine=frequency=82:sample_rate=48000:duration={total + 1}", "-filter_complex", "volume=0.010", str(bgm)], check=True)
+        subprocess.run([FFMPEG_BIN, "-y", "-i", str(wav_audio), "-i", str(bgm), "-filter_complex", "[0:a]volume=1.0[a0];[1:a]volume=0.03[a1];[a0][a1]amix=inputs=2:duration=first", "-c:a", "aac", "-b:a", "192k", str(mixed)], check=True)
     else:
-        subprocess.run(["ffmpeg", "-y", "-i", str(wav_audio), "-c:a", "aac", "-b:a", "192k", str(mixed)], check=True)
-    subprocess.run(["ffmpeg", "-y", "-i", str(silent), "-i", str(mixed), "-map", "0:v:0", "-map", "1:a:0", "-c:v", "copy", "-c:a", "aac", "-shortest", str(video)], check=True)
+        subprocess.run([FFMPEG_BIN, "-y", "-i", str(wav_audio), "-c:a", "aac", "-b:a", "192k", str(mixed)], check=True)
+    subprocess.run([FFMPEG_BIN, "-y", "-i", str(silent), "-i", str(mixed), "-map", "0:v:0", "-map", "1:a:0", "-c:v", "copy", "-c:a", "aac", "-shortest", str(video)], check=True)
     return video
 
 
 def render_local_scene_clip(frame, audio, duration_seconds, target):
     subprocess.run(
         [
-            "ffmpeg",
+            FFMPEG_BIN,
             "-y",
             "-loop",
             "1",
@@ -1234,7 +1252,7 @@ def render_local_scene_clip(frame, audio, duration_seconds, target):
 def transcode_scene_clip(source, target):
     subprocess.run(
         [
-            "ffmpeg",
+            FFMPEG_BIN,
             "-y",
             "-i",
             str(source),
@@ -1293,7 +1311,7 @@ def apply_bgm_to_video(source, target, total_duration):
     bgm = OUT / "heygen_hybrid_bgm.wav"
     subprocess.run(
         [
-            "ffmpeg",
+            FFMPEG_BIN,
             "-y",
             "-f",
             "lavfi",
@@ -1307,7 +1325,7 @@ def apply_bgm_to_video(source, target, total_duration):
     )
     subprocess.run(
         [
-            "ffmpeg",
+            FFMPEG_BIN,
             "-y",
             "-i",
             str(source),
@@ -1368,7 +1386,7 @@ def render_heygen_hybrid_video(scenes, scene_wavs, scene_durations, frame_dir):
     without_bgm = OUT / "heygen_hybrid_no_bgm.mp4"
     video = OUT / "final.mp4"
     subprocess.run(
-        ["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(concat), "-c", "copy", str(without_bgm)],
+        [FFMPEG_BIN, "-y", "-f", "concat", "-safe", "0", "-i", str(concat), "-c", "copy", str(without_bgm)],
         check=True,
     )
     apply_bgm_to_video(without_bgm, video, sum(scene_durations))

@@ -76,6 +76,7 @@ jobs:
       GEMINI_IMAGE_MODEL: gemini-2.5-flash-image
       SCENE_IMAGE_MAX_WORKERS: "2"
       YOUTUBE_PRIVACY: public
+      FONT_FILE: ${{ github.workspace }}/runtime-assets/NotoSansCJKkr-Regular.otf
 
     steps:
       - uses: actions/checkout@v4
@@ -85,10 +86,11 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install system dependencies
+      - name: Prepare runtime assets
         run: |
-          sudo apt-get update
-          sudo apt-get install -y ffmpeg fonts-noto-cjk
+          mkdir -p runtime-assets
+          curl -L https://raw.githubusercontent.com/notofonts/noto-cjk/main/Sans/OTF/Korean/NotoSansCJKkr-Regular.otf \
+            -o runtime-assets/NotoSansCJKkr-Regular.otf
 
       - name: Install Python dependencies
         run: pip install -r longform_automation/requirements.txt
