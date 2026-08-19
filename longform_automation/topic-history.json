@@ -48,5 +48,15 @@
     "voice_id": "yFhtTlnagRJxbEs8yUYt",
     "tts_provider": "elevenlabs",
     "macos_say_voice": null
+  },
+  {
+    "topic": "건강상식: 수면 부족이 혈당 조절을 흔드는 원리와 예방",
+    "title": "잠이 부족하면 혈당이 흔들리는 이유, 몸속에서 일어나는 변화",
+    "created_at": "2026-08-19T21:46:00",
+    "automated": true,
+    "video_id": "BPCIwcB81h8",
+    "voice_id": "yFhtTlnagRJxbEs8yUYt",
+    "tts_provider": "elevenlabs",
+    "macos_say_voice": null
   }
 ]
