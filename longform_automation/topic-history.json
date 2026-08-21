@@ -68,5 +68,15 @@
     "voice_id": "yFhtTlnagRJxbEs8yUYt",
     "tts_provider": "elevenlabs",
     "macos_say_voice": null
+  },
+  {
+    "topic": "건강상식: 동맥경화가 진행되는 원리와 혈관을 지키는 생활 습관",
+    "title": "혈관은 어떻게 좁아질까? 동맥경화의 시작과 예방 습관",
+    "created_at": "2026-08-21T20:49:11",
+    "automated": true,
+    "video_id": "_46ZoAo7X0E",
+    "voice_id": "yFhtTlnagRJxbEs8yUYt",
+    "tts_provider": "elevenlabs",
+    "macos_say_voice": null
   }
 ]
