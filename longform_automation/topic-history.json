@@ -88,5 +88,15 @@
     "voice_id": "yFhtTlnagRJxbEs8yUYt",
     "tts_provider": "elevenlabs",
     "macos_say_voice": null
+  },
+  {
+    "topic": "건강상식: 대장 용종이 생기는 원인과 예방 습관",
+    "title": "대장 용종은 왜 생길까? 장 점막 변화부터 예방 습관까지",
+    "created_at": "2026-08-23T23:12:27",
+    "automated": true,
+    "video_id": "q4qxwFSNsB4",
+    "voice_id": "yFhtTlnagRJxbEs8yUYt",
+    "tts_provider": "elevenlabs",
+    "macos_say_voice": null
   }
 ]
