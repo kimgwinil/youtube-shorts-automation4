@@ -108,5 +108,15 @@
     "voice_id": "yFhtTlnagRJxbEs8yUYt",
     "tts_provider": "elevenlabs",
     "macos_say_voice": null
+  },
+  {
+    "topic": "건강상식: 미세먼지가 폐와 기도에 염증을 일으키는 과정과 호흡기 보호 습관",
+    "title": "미세먼지는 폐에서 무슨 일을 할까? 기도 염증의 원리와 예방 습관",
+    "created_at": "2026-08-28T04:28:43",
+    "automated": true,
+    "video_id": "kviGOQ4qGho",
+    "voice_id": "yFhtTlnagRJxbEs8yUYt",
+    "tts_provider": "elevenlabs",
+    "macos_say_voice": null
   }
 ]
