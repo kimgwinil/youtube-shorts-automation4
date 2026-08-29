@@ -128,5 +128,15 @@
     "voice_id": "yFhtTlnagRJxbEs8yUYt",
     "tts_provider": "elevenlabs",
     "macos_say_voice": null
+  },
+  {
+    "topic": "건강상식: 헬리코박터 파일로리균이 위 점막에 염증을 일으키는 과정과 예방 습관",
+    "title": "헬리코박터 파일로리균은 어떻게 위를 자극할까? 위염 위험을 낮추는 생활 습관",
+    "created_at": "2026-08-29T22:46:12",
+    "automated": true,
+    "video_id": "ohU9bulnv9w",
+    "voice_id": "yFhtTlnagRJxbEs8yUYt",
+    "tts_provider": "elevenlabs",
+    "macos_say_voice": null
   }
 ]
