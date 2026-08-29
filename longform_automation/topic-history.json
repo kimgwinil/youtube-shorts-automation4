@@ -118,5 +118,15 @@
     "voice_id": "yFhtTlnagRJxbEs8yUYt",
     "tts_provider": "elevenlabs",
     "macos_say_voice": null
+  },
+  {
+    "topic": "건강상식: 손 씻기가 감염병 전파를 막는 원리",
+    "title": "손에 묻은 바이러스와 세균은 어떻게 몸속으로 들어올까? 감염을 줄이는 손 씻기의 과학",
+    "created_at": "2026-08-29T02:56:05",
+    "automated": true,
+    "video_id": "OFy-FHcht7c",
+    "voice_id": "yFhtTlnagRJxbEs8yUYt",
+    "tts_provider": "elevenlabs",
+    "macos_say_voice": null
   }
 ]
