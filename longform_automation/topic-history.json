@@ -138,5 +138,15 @@
     "voice_id": "yFhtTlnagRJxbEs8yUYt",
     "tts_provider": "elevenlabs",
     "macos_say_voice": null
+  },
+  {
+    "topic": "건강상식: 대상포진 바이러스가 다시 활성화되는 원리와 예방",
+    "title": "잠복해 있던 대상포진 바이러스는 왜 다시 깨어날까?",
+    "created_at": "2026-08-30T22:54:07",
+    "automated": true,
+    "video_id": "KKqzqZE7KAs",
+    "voice_id": "yFhtTlnagRJxbEs8yUYt",
+    "tts_provider": "elevenlabs",
+    "macos_say_voice": null
   }
 ]
