@@ -148,5 +148,15 @@
     "voice_id": "yFhtTlnagRJxbEs8yUYt",
     "tts_provider": "elevenlabs",
     "macos_say_voice": null
+  },
+  {
+    "topic": "식후 혈당 급상승이 반복되는 원리와 이를 줄이는 식사·활동 습관",
+    "title": "식후 혈당이 갑자기 오르는 이유와 혈관을 지키는 생활 습관",
+    "created_at": "2026-08-31T22:57:11",
+    "automated": true,
+    "video_id": "5PDrZLuZbOA",
+    "voice_id": "yFhtTlnagRJxbEs8yUYt",
+    "tts_provider": "elevenlabs",
+    "macos_say_voice": null
   }
 ]
