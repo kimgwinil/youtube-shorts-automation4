@@ -158,5 +158,15 @@
     "voice_id": "yFhtTlnagRJxbEs8yUYt",
     "tts_provider": "elevenlabs",
     "macos_say_voice": null
+  },
+  {
+    "topic": "건강상식: 코골이와 수면무호흡이 혈액 산소와 심장에 미치는 영향",
+    "title": "코골이가 단순한 잠버릇이 아닐 수 있는 이유: 수면무호흡의 원리와 예방 습관",
+    "created_at": "2026-08-31T23:59:30",
+    "automated": true,
+    "video_id": "iqDrq29WvHk",
+    "voice_id": "yFhtTlnagRJxbEs8yUYt",
+    "tts_provider": "elevenlabs",
+    "macos_say_voice": null
   }
 ]
