@@ -178,5 +178,15 @@
     "voice_id": "yFhtTlnagRJxbEs8yUYt",
     "tts_provider": "elevenlabs",
     "macos_say_voice": null
+  },
+  {
+    "topic": "건강상식: 뇌졸중 위험을 높이는 심방세동의 원리와 조기 확인 습관",
+    "title": "맥박이 불규칙할 때 주의해야 하는 이유: 심방세동과 뇌졸중 예방",
+    "created_at": "2026-09-02T22:46:24",
+    "automated": true,
+    "video_id": "HqgRZY2HjDg",
+    "voice_id": "yFhtTlnagRJxbEs8yUYt",
+    "tts_provider": "elevenlabs",
+    "macos_say_voice": null
   }
 ]
