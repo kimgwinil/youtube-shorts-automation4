@@ -198,5 +198,15 @@
     "voice_id": "yFhtTlnagRJxbEs8yUYt",
     "tts_provider": "elevenlabs",
     "macos_say_voice": null
+  },
+  {
+    "topic": "건강상식: 혈전이 생기는 원리와 장시간 앉아 있을 때 다리 혈액순환을 지키는 습관",
+    "title": "오래 앉아 있으면 다리에 혈전이 생길까? 혈액순환의 원리와 예방 습관",
+    "created_at": "2026-09-04T22:28:30",
+    "automated": true,
+    "video_id": "5vLnOcbOYXQ",
+    "voice_id": "yFhtTlnagRJxbEs8yUYt",
+    "tts_provider": "elevenlabs",
+    "macos_say_voice": null
   }
 ]
