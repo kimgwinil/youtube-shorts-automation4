@@ -218,5 +218,15 @@
     "voice_id": "yFhtTlnagRJxbEs8yUYt",
     "tts_provider": "elevenlabs",
     "macos_say_voice": null
+  },
+  {
+    "topic": "건강상식: 면역력이 떨어질 때 구내염이 반복되는 원리와 예방 습관",
+    "title": "입안이 자주 헐 때 알아야 할 면역과 점막 건강의 원리",
+    "created_at": "2026-09-06T22:14:44",
+    "automated": true,
+    "video_id": "Wvb1H27rIjs",
+    "voice_id": "yFhtTlnagRJxbEs8yUYt",
+    "tts_provider": "elevenlabs",
+    "macos_say_voice": null
   }
 ]
