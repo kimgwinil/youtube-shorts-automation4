@@ -228,5 +228,15 @@
     "voice_id": "yFhtTlnagRJxbEs8yUYt",
     "tts_provider": "elevenlabs",
     "macos_say_voice": null
+  },
+  {
+    "topic": "건강상식: 대사증후군이 생기는 원리와 허리둘레를 줄이는 예방 습관",
+    "title": "허리둘레가 알려주는 건강 신호, 대사증후군의 원리와 예방 습관",
+    "created_at": "2026-09-07T22:57:44",
+    "automated": true,
+    "video_id": "abknCNBVK1E",
+    "voice_id": "yFhtTlnagRJxbEs8yUYt",
+    "tts_provider": "elevenlabs",
+    "macos_say_voice": null
   }
 ]
