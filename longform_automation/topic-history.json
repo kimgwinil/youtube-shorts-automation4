@@ -238,5 +238,15 @@
     "voice_id": "yFhtTlnagRJxbEs8yUYt",
     "tts_provider": "elevenlabs",
     "macos_say_voice": null
+  },
+  {
+    "topic": "건강상식: 폐렴이 발생하는 감염 경로와 폐 건강을 지키는 예방 습관",
+    "title": "폐렴은 어떻게 시작될까? 감염 경로와 폐를 지키는 생활 습관",
+    "created_at": "2026-09-08T22:49:22",
+    "automated": true,
+    "video_id": "4kjetewdcEU",
+    "voice_id": "yFhtTlnagRJxbEs8yUYt",
+    "tts_provider": "elevenlabs",
+    "macos_say_voice": null
   }
 ]
