@@ -248,5 +248,15 @@
     "voice_id": "yFhtTlnagRJxbEs8yUYt",
     "tts_provider": "elevenlabs",
     "macos_say_voice": null
+  },
+  {
+    "topic": "건강상식: 철분 부족이 산소 운반과 피로에 영향을 주는 원리와 예방 습관",
+    "title": "철분이 부족하면 왜 쉽게 피곤할까? 산소 운반 원리와 예방 습관",
+    "created_at": "2026-09-09T22:41:35",
+    "automated": true,
+    "video_id": "bBAAhcvr6eI",
+    "voice_id": "yFhtTlnagRJxbEs8yUYt",
+    "tts_provider": "elevenlabs",
+    "macos_say_voice": null
   }
 ]
