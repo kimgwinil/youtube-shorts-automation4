@@ -278,5 +278,15 @@
     "voice_id": "yFhtTlnagRJxbEs8yUYt",
     "tts_provider": "elevenlabs",
     "macos_say_voice": null
+  },
+  {
+    "topic": "건강상식: 만성 스트레스가 면역과 심혈관 건강에 영향을 주는 원리와 회복 습관",
+    "title": "만성 스트레스는 몸을 어떻게 지치게 할까? 면역과 심혈관 건강을 지키는 회복 습관",
+    "created_at": "2026-09-12T22:26:51",
+    "automated": true,
+    "video_id": "eT45orgCMU8",
+    "voice_id": "yFhtTlnagRJxbEs8yUYt",
+    "tts_provider": "elevenlabs",
+    "macos_say_voice": null
   }
 ]
