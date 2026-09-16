@@ -318,5 +318,15 @@
     "voice_id": "yFhtTlnagRJxbEs8yUYt",
     "tts_provider": "elevenlabs",
     "macos_say_voice": null
+  },
+  {
+    "topic": "건강상식: 청력 손실이 귀 속 감각세포에 진행되는 원리와 소음으로부터 귀를 지키는 습관",
+    "title": "조용히 진행되는 청력 손실, 귀 속 감각세포를 지키는 생활 습관",
+    "created_at": "2026-09-16T23:05:29",
+    "automated": true,
+    "video_id": "UFvAoqYDcZI",
+    "voice_id": "yFhtTlnagRJxbEs8yUYt",
+    "tts_provider": "elevenlabs",
+    "macos_say_voice": null
   }
 ]
