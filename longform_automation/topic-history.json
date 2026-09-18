@@ -338,5 +338,15 @@
     "voice_id": "yFhtTlnagRJxbEs8yUYt",
     "tts_provider": "elevenlabs",
     "macos_say_voice": null
+  },
+  {
+    "topic": "건강상식: 충치균이 치아를 손상시키는 과정과 치아우식증 예방 습관",
+    "title": "충치는 어떻게 시작될까? 치아 표면의 변화와 예방 습관",
+    "created_at": "2026-09-18T22:42:26",
+    "automated": true,
+    "video_id": "at5xsCPFTfc",
+    "voice_id": "yFhtTlnagRJxbEs8yUYt",
+    "tts_provider": "elevenlabs",
+    "macos_say_voice": null
   }
 ]
