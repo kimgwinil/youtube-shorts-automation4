@@ -7,6 +7,7 @@ import re
 import shutil
 import subprocess
 import time
+import wave
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 from pathlib import Path
@@ -863,6 +864,67 @@ def openai_tts(text, path):
         raise RuntimeError("OpenAI TTS produced an invalid audio file")
 
 
+def write_pcm_wave(path, pcm, channels=1, rate=24000, sample_width=2):
+    with wave.open(str(path), "wb") as wf:
+        wf.setnchannels(channels)
+        wf.setsampwidth(sample_width)
+        wf.setframerate(rate)
+        wf.writeframes(pcm)
+
+
+def gemini_tts(text, path):
+    api_key = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
+    if not api_key:
+        raise RuntimeError("GEMINI_API_KEY/GOOGLE_API_KEY is not set")
+    from google import genai
+    from google.genai import types
+
+    client = genai.Client(api_key=api_key)
+    model = os.getenv("GEMINI_TTS_MODEL", "gemini-2.5-flash-preview-tts")
+    voice = os.getenv("GEMINI_TTS_VOICE", "Kore")
+    response = client.models.generate_content(
+        model=model,
+        contents=(
+            "Read this Korean YouTube narration in a calm, warm, clear documentary voice. "
+            "Keep the pacing natural and do not add any extra words.\n\n" + text
+        ),
+        config=types.GenerateContentConfig(
+            response_modalities=["AUDIO"],
+            speech_config=types.SpeechConfig(
+                voice_config=types.VoiceConfig(
+                    prebuilt_voice_config=types.PrebuiltVoiceConfig(voice_name=voice)
+                )
+            ),
+        ),
+    )
+    for part in response.candidates[0].content.parts:
+        inline_data = getattr(part, "inline_data", None)
+        if not inline_data:
+            continue
+        audio = inline_data.data
+        if isinstance(audio, str):
+            audio = base64.b64decode(audio)
+        mime_type = (getattr(inline_data, "mime_type", "") or "").lower()
+        if "mpeg" in mime_type or "mp3" in mime_type:
+            path.write_bytes(audio)
+        else:
+            tmp = path.with_suffix(".gemini.wav")
+            if audio.startswith(b"RIFF"):
+                tmp.write_bytes(audio)
+            else:
+                write_pcm_wave(tmp, audio)
+            subprocess.run(
+                [FFMPEG_BIN, "-y", "-i", str(tmp), "-codec:a", "libmp3lame", "-b:a", "128k", str(path)],
+                check=True,
+            )
+            tmp.unlink(missing_ok=True)
+        if not path.exists() or path.stat().st_size < 1000:
+            raise RuntimeError("Gemini TTS produced an invalid audio file")
+        print(f"Gemini TTS generated with model={model} voice={voice}")
+        return
+    raise RuntimeError("Gemini TTS response did not include audio data")
+
+
 def synthesize_tts(text, path):
     provider = os.getenv("TTS_PROVIDER", "elevenlabs").lower()
     errors = []
@@ -893,6 +955,12 @@ def synthesize_tts(text, path):
         raise RuntimeError(f"Unsupported TTS_PROVIDER: {provider}")
 
     if os.getenv("TTS_ALLOW_FALLBACK", "false").lower() == "true":
+        try:
+            gemini_tts(text, path)
+            print("TTS complete with Gemini fallback")
+            return
+        except Exception as exc:
+            errors.append(f"Gemini TTS: {exc}")
         try:
             openai_tts(text, path)
             print(
