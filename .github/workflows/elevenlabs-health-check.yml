@@ -1,0 +1,77 @@
+name: ElevenLabs Health Check
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+      ELEVENLABS_VOICE_ID: ${{ secrets.ELEVENLABS_VOICE_ID }}
+    steps:
+      - name: Check account, subscription, voice, and TTS access
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          import os
+          import urllib.error
+          import urllib.request
+
+          api_key = os.environ.get("ELEVENLABS_API_KEY", "")
+          voice_id = os.environ.get("ELEVENLABS_VOICE_ID", "")
+          if not api_key:
+              raise SystemExit("ELEVENLABS_API_KEY is not configured")
+
+          headers = {"xi-api-key": api_key}
+
+          def call(path, payload=None):
+              data = None if payload is None else json.dumps(payload).encode()
+              request = urllib.request.Request(
+                  "https://api.elevenlabs.io" + path,
+                  data=data,
+                  headers=headers | ({"Content-Type": "application/json"} if data else {}),
+              )
+              try:
+                  with urllib.request.urlopen(request, timeout=30) as response:
+                      return response.status, response.read()
+              except urllib.error.HTTPError as exc:
+                  return exc.code, exc.read()
+
+          status, body = call("/v1/user/subscription")
+          subscription = json.loads(body or b"{}")
+          print("subscription_http_status=", status)
+          print("subscription=", json.dumps({
+              key: subscription.get(key)
+              for key in ("tier", "status", "character_count", "character_limit", "next_character_count_reset_unix")
+          }, ensure_ascii=False))
+
+          status, body = call("/v1/voices")
+          voices = json.loads(body or b"{}") if status == 200 else {}
+          configured = next((voice for voice in voices.get("voices", []) if voice.get("voice_id") == voice_id), None)
+          print("voices_http_status=", status)
+          print("configured_voice_found=", bool(configured))
+          if configured:
+              print("configured_voice_name=", configured.get("name"))
+
+          if not voice_id:
+              raise SystemExit("ELEVENLABS_VOICE_ID is not configured")
+          status, body = call(
+              f"/v1/text-to-speech/{voice_id}?output_format=mp3_44100_128",
+              {"text": "테스트입니다.", "model_id": "eleven_multilingual_v2"},
+          )
+          print("tts_http_status=", status)
+          if status != 200:
+              try:
+                  print("tts_error=", json.dumps(json.loads(body), ensure_ascii=False))
+              except Exception:
+                  print("tts_error=", body.decode("utf-8", "replace")[:1000])
+              raise SystemExit(1)
+          print("tts_result=success")
+          PY
