@@ -91,7 +91,7 @@ def _generate_topic_gemini(used_topics):
         )
     )
     response = client.models.generate_content(
-        model=os.getenv("GEMINI_TEXT_MODEL", "gemini-2.5-flash"),
+        model=os.getenv("GEMINI_TEXT_MODEL", "gemini-3.6-flash"),
         contents=prompt,
     )
     return _parse_and_validate_topic(response.text, used_topics)
