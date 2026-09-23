@@ -47,6 +47,8 @@ jobs:
           status, body = call("/v1/user/subscription")
           subscription = json.loads(body or b"{}")
           print("subscription_http_status=", status)
+          if status != 200:
+              print("subscription_error=", json.dumps(subscription, ensure_ascii=False))
           print("subscription=", json.dumps({
               key: subscription.get(key)
               for key in ("tier", "status", "character_count", "character_limit", "next_character_count_reset_unix")
@@ -56,6 +58,11 @@ jobs:
           voices = json.loads(body or b"{}") if status == 200 else {}
           configured = next((voice for voice in voices.get("voices", []) if voice.get("voice_id") == voice_id), None)
           print("voices_http_status=", status)
+          if status != 200:
+              try:
+                  print("voices_error=", json.dumps(json.loads(body), ensure_ascii=False))
+              except Exception:
+                  print("voices_error=", body.decode("utf-8", "replace")[:1000])
           print("configured_voice_found=", bool(configured))
           if configured:
               print("configured_voice_name=", configured.get("name"))
