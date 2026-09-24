@@ -368,5 +368,15 @@
     "voice_id": "CwhRBWXzGAHq8TQ4Fs17",
     "tts_provider": "elevenlabs",
     "macos_say_voice": null
+  },
+  {
+    "topic": "건강상식: 담석이 생기는 원리와 쓸개 건강을 지키는 식습관",
+    "title": "쓸개에 돌이 생기는 이유? 담석 형성 원리와 담낭 건강을 지키는 습관",
+    "created_at": "2026-09-24T23:19:30",
+    "automated": true,
+    "video_id": "zaXpu2cjD4g",
+    "voice_id": "CwhRBWXzGAHq8TQ4Fs17",
+    "tts_provider": "elevenlabs",
+    "macos_say_voice": null
   }
 ]
