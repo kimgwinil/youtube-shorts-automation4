@@ -378,5 +378,15 @@
     "voice_id": "CwhRBWXzGAHq8TQ4Fs17",
     "tts_provider": "elevenlabs",
     "macos_say_voice": null
+  },
+  {
+    "topic": "건강상식: 하지정맥류가 생기는 원인과 다리 정맥 판막을 지키는 예방 습관",
+    "title": "다리 혈관이 불룩해지는 이유? 정맥 판막 손상의 원리와 혈액순환 예방 습관",
+    "created_at": "2026-09-25T23:23:24",
+    "automated": true,
+    "video_id": "B_JrEkjQ5qg",
+    "voice_id": "CwhRBWXzGAHq8TQ4Fs17",
+    "tts_provider": "elevenlabs",
+    "macos_say_voice": null
   }
 ]
