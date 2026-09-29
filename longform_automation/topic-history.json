@@ -408,5 +408,15 @@
     "voice_id": "CwhRBWXzGAHq8TQ4Fs17",
     "tts_provider": "elevenlabs",
     "macos_say_voice": null
+  },
+  {
+    "topic": "건강상식: 이석증이 발생하는 원리와 귓속 평형감각을 지키는 생활 습관",
+    "title": "갑자기 세상이 도는 어지럼증, 이석증이 생기는 원리와 귀 건강 예방 습관",
+    "created_at": "2026-09-29T00:28:54",
+    "automated": true,
+    "video_id": "bk_huxld6UY",
+    "voice_id": "CwhRBWXzGAHq8TQ4Fs17",
+    "tts_provider": "elevenlabs",
+    "macos_say_voice": null
   }
 ]
