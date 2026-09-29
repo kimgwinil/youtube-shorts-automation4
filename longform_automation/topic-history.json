@@ -418,5 +418,15 @@
     "voice_id": "CwhRBWXzGAHq8TQ4Fs17",
     "tts_provider": "elevenlabs",
     "macos_say_voice": null
+  },
+  {
+    "topic": "건강상식: 알레르기 비염이 코 점막에 염증을 일으키는 원리와 환절기 예방 습관",
+    "title": "재채기와 코막힘이 반복되는 이유, 알레르기 비염의 원리와 코 건강 지키는 예방 습관",
+    "created_at": "2026-09-29T23:49:27",
+    "automated": true,
+    "video_id": "7nBCuxwlTZY",
+    "voice_id": "CwhRBWXzGAHq8TQ4Fs17",
+    "tts_provider": "elevenlabs",
+    "macos_say_voice": null
   }
 ]
