@@ -438,5 +438,15 @@
     "voice_id": "CwhRBWXzGAHq8TQ4Fs17",
     "tts_provider": "elevenlabs",
     "macos_say_voice": null
+  },
+  {
+    "topic": "건강상식: 지방과 당이 많은 식습관이 췌장에 부담을 주는 원리와 췌장 건강 예방 습관",
+    "title": "췌장은 왜 지칠까? 지방과 당 섭취가 소화와 혈당 조절에 미치는 영향",
+    "created_at": "2026-10-02T00:00:18",
+    "automated": true,
+    "video_id": "5rJEMUKWV60",
+    "voice_id": "CwhRBWXzGAHq8TQ4Fs17",
+    "tts_provider": "elevenlabs",
+    "macos_say_voice": null
   }
 ]
