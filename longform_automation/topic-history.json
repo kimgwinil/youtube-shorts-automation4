@@ -448,5 +448,15 @@
     "voice_id": "CwhRBWXzGAHq8TQ4Fs17",
     "tts_provider": "elevenlabs",
     "macos_say_voice": null
+  },
+  {
+    "topic": "건강상식: 인유두종바이러스 감염이 자궁경부 세포 변화로 이어지는 경로와 예방 습관",
+    "title": "인유두종바이러스는 어떻게 자궁경부 세포를 변화시킬까? 감염 경로와 예방 습관",
+    "created_at": "2026-10-02T23:55:26",
+    "automated": true,
+    "video_id": "RTYtLBkEuwc",
+    "voice_id": "CwhRBWXzGAHq8TQ4Fs17",
+    "tts_provider": "elevenlabs",
+    "macos_say_voice": null
   }
 ]
