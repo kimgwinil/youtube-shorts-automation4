@@ -458,5 +458,15 @@
     "voice_id": "CwhRBWXzGAHq8TQ4Fs17",
     "tts_provider": "elevenlabs",
     "macos_say_voice": null
+  },
+  {
+    "topic": "건강상식: 손목터널증후군이 손가락 감각과 손 기능에 영향을 주는 원리와 예방 습관",
+    "title": "손이 저리고 밤에 더 아픈 이유, 손목터널증후군의 원리와 예방 습관",
+    "created_at": "2026-10-03T23:11:53",
+    "automated": true,
+    "video_id": "La6TrGW6pjI",
+    "voice_id": "CwhRBWXzGAHq8TQ4Fs17",
+    "tts_provider": "elevenlabs",
+    "macos_say_voice": null
   }
 ]
