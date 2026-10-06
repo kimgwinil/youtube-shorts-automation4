@@ -478,5 +478,15 @@
     "voice_id": "CwhRBWXzGAHq8TQ4Fs17",
     "tts_provider": "elevenlabs",
     "macos_say_voice": null
+  },
+  {
+    "topic": "건강상식: 뇌를 둘러싼 수막염이 발생하는 감염 경로와 예방 습관",
+    "title": "수막염은 어떻게 시작될까? 뇌를 보호하는 막의 염증과 예방 습관",
+    "created_at": "2026-10-06T01:26:01",
+    "automated": true,
+    "video_id": "iyWR4R4qSVc",
+    "voice_id": "CwhRBWXzGAHq8TQ4Fs17",
+    "tts_provider": "elevenlabs",
+    "macos_say_voice": null
   }
 ]
