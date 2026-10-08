@@ -498,5 +498,15 @@
     "voice_id": "CwhRBWXzGAHq8TQ4Fs17",
     "tts_provider": "elevenlabs",
     "macos_say_voice": null
+  },
+  {
+    "topic": "건강상식: 편두통이 발생하는 신경혈관 반응과 두통 예방 습관",
+    "title": "편두통은 왜 반복될까? 뇌혈관과 신경의 변화, 일상 예방 습관",
+    "created_at": "2026-10-08T00:19:32",
+    "automated": true,
+    "video_id": "UNERU0Ey5Sk",
+    "voice_id": "CwhRBWXzGAHq8TQ4Fs17",
+    "tts_provider": "elevenlabs",
+    "macos_say_voice": null
   }
 ]
