@@ -528,5 +528,15 @@
     "voice_id": "CwhRBWXzGAHq8TQ4Fs17",
     "tts_provider": "elevenlabs",
     "macos_say_voice": null
+  },
+  {
+    "topic": "건강상식: 알코올이 간세포와 뇌 기능에 영향을 주는 과정 및 절주 습관",
+    "title": "술은 몸속에서 어떻게 분해될까? 간과 뇌를 지키는 절주 원리",
+    "created_at": "2026-10-10T23:41:26",
+    "automated": true,
+    "video_id": "2fvFf6RwFvI",
+    "voice_id": "CwhRBWXzGAHq8TQ4Fs17",
+    "tts_provider": "elevenlabs",
+    "macos_say_voice": null
   }
 ]
