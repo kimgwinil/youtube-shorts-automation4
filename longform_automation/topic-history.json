@@ -538,5 +538,15 @@
     "voice_id": "CwhRBWXzGAHq8TQ4Fs17",
     "tts_provider": "elevenlabs",
     "macos_say_voice": null
+  },
+  {
+    "topic": "건강상식: 음식 알레르기가 면역 반응과 기도에 영향을 주는 과정 및 예방 습관",
+    "title": "음식 알레르기는 왜 생길까? 면역 반응과 기도를 지키는 생활 습관",
+    "created_at": "2026-10-11T23:48:33",
+    "automated": true,
+    "video_id": "e0vcjWOFaEs",
+    "voice_id": "CwhRBWXzGAHq8TQ4Fs17",
+    "tts_provider": "elevenlabs",
+    "macos_say_voice": null
   }
 ]
