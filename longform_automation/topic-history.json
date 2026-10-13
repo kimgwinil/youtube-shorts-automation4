@@ -548,5 +548,15 @@
     "voice_id": "CwhRBWXzGAHq8TQ4Fs17",
     "tts_provider": "elevenlabs",
     "macos_say_voice": null
+  },
+  {
+    "topic": "건강상식: 체내 나트륨이 수분 균형과 부종에 영향을 주는 원리 및 줄이는 식습관",
+    "title": "짜게 먹으면 몸에 물이 차는 이유, 나트륨과 부종의 관계",
+    "created_at": "2026-10-13T02:09:41",
+    "automated": true,
+    "video_id": "AtMtyZNDjLI",
+    "voice_id": "CwhRBWXzGAHq8TQ4Fs17",
+    "tts_provider": "elevenlabs",
+    "macos_say_voice": null
   }
 ]
