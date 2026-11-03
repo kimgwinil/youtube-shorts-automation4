@@ -568,5 +568,15 @@
     "voice_id": "CwhRBWXzGAHq8TQ4Fs17",
     "tts_provider": "elevenlabs",
     "macos_say_voice": null
+  },
+  {
+    "topic": "건강상식: 간헐적 단식이 담즙과 위장 기능에 미치는 영향 및 균형 잡힌 식사 습관",
+    "title": "간헐적 단식, 몸에는 어떤 변화가 생길까? 담즙과 위장 건강을 지키는 식사 원칙",
+    "created_at": "2026-11-03T02:26:28",
+    "automated": true,
+    "video_id": "QY-L7MSGROw",
+    "voice_id": "CwhRBWXzGAHq8TQ4Fs17",
+    "tts_provider": "elevenlabs",
+    "macos_say_voice": null
   }
 ]
