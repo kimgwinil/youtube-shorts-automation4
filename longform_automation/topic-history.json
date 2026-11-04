@@ -578,5 +578,15 @@
     "voice_id": "CwhRBWXzGAHq8TQ4Fs17",
     "tts_provider": "elevenlabs",
     "macos_say_voice": null
+  },
+  {
+    "topic": "건강상식: 눈의 망막이 손상되는 원리와 시력 보호를 위한 생활 습관",
+    "title": "눈앞이 흐려지는 이유, 망막을 지키는 생활 습관",
+    "created_at": "2026-11-04T00:42:15",
+    "automated": true,
+    "video_id": "Gjfg6dFiHnc",
+    "voice_id": "CwhRBWXzGAHq8TQ4Fs17",
+    "tts_provider": "elevenlabs",
+    "macos_say_voice": null
   }
 ]
