@@ -598,5 +598,15 @@
     "voice_id": "CwhRBWXzGAHq8TQ4Fs17",
     "tts_provider": "elevenlabs",
     "macos_say_voice": null
+  },
+  {
+    "topic": "건강상식: 귀지가 쌓이는 원리와 외이도 건강을 지키는 귀 관리 습관",
+    "title": "귀지는 왜 생기고 언제 문제가 될까? 외이도 건강을 지키는 올바른 관리법",
+    "created_at": "2026-11-06T01:01:58",
+    "automated": true,
+    "video_id": "GCrQHoEg3CE",
+    "voice_id": "CwhRBWXzGAHq8TQ4Fs17",
+    "tts_provider": "elevenlabs",
+    "macos_say_voice": null
   }
 ]
