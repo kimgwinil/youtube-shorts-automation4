@@ -618,5 +618,15 @@
     "voice_id": "CwhRBWXzGAHq8TQ4Fs17",
     "tts_provider": "elevenlabs",
     "macos_say_voice": null
+  },
+  {
+    "topic": "건강상식: 뇌수막염이 발생하는 감염 경로와 예방 습관",
+    "title": "뇌수막염은 어떻게 시작될까? 감염 경로와 뇌를 지키는 예방 습관",
+    "created_at": "2026-11-19T01:57:43",
+    "automated": true,
+    "video_id": "hmcIkOPuUxc",
+    "voice_id": "CwhRBWXzGAHq8TQ4Fs17",
+    "tts_provider": "elevenlabs",
+    "macos_say_voice": null
   }
 ]
