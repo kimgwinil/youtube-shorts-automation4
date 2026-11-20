@@ -628,5 +628,15 @@
     "voice_id": "CwhRBWXzGAHq8TQ4Fs17",
     "tts_provider": "elevenlabs",
     "macos_say_voice": null
+  },
+  {
+    "topic": "건강상식: 만성 기침이 지속되는 원인과 기도 건강을 지키는 예방 습관",
+    "title": "기침이 오래가는 이유, 기도에서 일어나는 변화와 예방 습관",
+    "created_at": "2026-11-20T01:51:30",
+    "automated": true,
+    "video_id": "POsQXX0HvHA",
+    "voice_id": "CwhRBWXzGAHq8TQ4Fs17",
+    "tts_provider": "elevenlabs",
+    "macos_say_voice": null
   }
 ]
